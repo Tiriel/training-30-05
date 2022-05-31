@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Movie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,16 +23,10 @@ class MovieController extends AbstractController
     }
 
     /**
-     * @Route("/{id<\d+>}", name="details")
+     * @Route("/{id}", name="details")
      */
-    public function details(int $id): Response
+    public function details(Movie $movie): Response
     {
-        $movie = [
-            'title' => 'Star Wars',
-            'releasedAt' => new \DateTimeImmutable('1977-05-25'),
-            'genres' => ['Action', 'Aventure', 'Fantasy'],
-        ];
-
         return $this->render('movie/details.html.twig', [
             'movie' => $movie,
         ]);

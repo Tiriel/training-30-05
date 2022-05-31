@@ -4,12 +4,25 @@
 
 {% block body %}
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Sensio TV+</h1>
 
-    This friendly message is coming from:
+    <p>Last movies added :</p>
     <ul>
-        <li>Your controller at <code><a href="{{ '/home/benjamin/Dev/sl/formations/training-30-05/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/benjamin/Dev/sl/formations/training-30-05/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
+    {% for movie in movies %}
+        <li>
+            <img src="{{ movie.poster }}" alt="{{ movie.poster }}"/>
+            <div>
+                <ul>
+                    <li>{{ movie.title }}</li>
+                    <li>{{ movie.releasedAt|date('Y M d') }}</li>
+                    <li>{{ movie.price }}</li>
+                </ul>
+            </div>
+        </li>
+
+        {% else %}
+        <p>No movies in database yet.</p>
+    {% endfor %}
     </ul>
 </div>
 {% endblock %}

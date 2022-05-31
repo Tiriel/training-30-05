@@ -6,25 +6,25 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function providePulicUrls(): array
-    {
-        return [
-            ['/', 200, true],
-            ['/contact', 200],
-            ['/hello/John', 200],
-            ['/book', 200],
-            ['/toto', 404],
-        ];
-    }
-
     /**
-     * @dataProvider providePulicUrls
+     * @dataProvider providePublicUrls
      */
-    public function testPublicUrls(string $url, int $statusCode): void
+    public function testPublicUrls(string $url, int $code): void
     {
         $client = static::createClient();
         $client->request('GET', $url);
 
-        $this->assertResponseStatusCodeSame($statusCode);
+        $this->assertResponseStatusCodeSame($code, $client->getResponse()->getStatusCode());
+    }
+
+    public function providePublicUrls(): array
+    {
+        return [
+            ['/', 200],
+            ['/contact', 200],
+            ['/book', 200],
+            ['/movie', 200],
+            ['/disk', 404],
+        ];
     }
 }
