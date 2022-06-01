@@ -17,7 +17,7 @@ class MovieProvider
         $this->transformer = $transformer;
     }
 
-    public function getMovieByTitle(string $title): Movie
+    public function getMovieByTitle(string $title): ?Movie
     {
         return $this->transformer->arrayToMovie(
             $this->consumer->getMovieByTitle($title)
