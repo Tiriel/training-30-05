@@ -20,13 +20,13 @@ final class Version20220531102926 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE comment (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, book_id INTEGER NOT NULL, author VARCHAR(255) NOT NULL, message CLOB NOT NULL)');
-        $this->addSql('CREATE INDEX IDX_9474526C16A2B381 ON comment (book_id)');
+        //$this->addSql('CREATE TABLE comment (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, book_id INTEGER NOT NULL, author VARCHAR(255) NOT NULL, message CLOB NOT NULL)');
+        //$this->addSql('CREATE INDEX IDX_9474526C16A2B381 ON comment (book_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE comment');
+        //$this->addSql('DROP TABLE comment');
     }
 }
