@@ -6,6 +6,8 @@
 <div class="example-wrapper">
     <h1>Movie : {{ movie.title }}</h1>
 
+    <img src="{{ movie.poster }}" alt="{{ movie.poster }}" />
+
     <ul>
         <li>Released : {{ movie.releasedAt|date('Y M d') }}</li>
         <li>Genres : {{ movie.genres|join(', ') }}</li>

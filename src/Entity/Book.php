@@ -22,7 +22,7 @@ class Book
 
     /**
      * @Assert\NotBlank()
-     * @Assert\Length({"min": 4})
+     * @Assert\Length(min= 4)
      * @ORM\Column(type="string", length=255)
      */
     private $title;
